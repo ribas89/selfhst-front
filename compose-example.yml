@@ -1,0 +1,24 @@
+services:
+  icons:
+    container_name: icons
+    image: local/icons:gallery
+    build:
+      context: ./icons
+      dockerfile: front/Dockerfile
+    user: "1000:1000"
+    cpus: 2
+    restart: unless-stopped
+    environment:
+      - PORT=80
+      - ICON_SOURCE=local
+    volumes:
+      - ./icons/build:/icons:ro
+    networks:
+      traefik:
+        ipv4_address: 172.10.0.2
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.icons.rule=Host(`example.com`)
+      - traefik.http.routers.icons.service=icons
+      - traefik.http.services.icons.loadbalancer.server.url=http://172.10.0.2:80

@@ -1,0 +1,13 @@
+# Only Go sources and static frontend assets should enter the image build.
+# Actual icon files remain on the host, mounted read-only at runtime.
+**
+!front/
+!front/go.mod
+!front/main.go
+!front/static/
+!front/static/**
+!front/entrypoint.sh
+!build/
+!build/build/
+!build/build/main.go
+!build/build/go.mod

@@ -1,0 +1,5 @@
+.git
+*.zip
+README.md
+compose-example.yml
+*_test.go

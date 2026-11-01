@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c1421">
+  <title>Icons</title>
+  <link rel="icon" type="image/x-icon" href="/selfh-st.ico">
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main id="gallery" class="gallery" aria-label="Icon gallery">
+    <div class="search-row" role="search">
+      <label for="icon-search" class="visually-hidden">Search icons</label>
+      <input id="icon-search" type="search" placeholder="Search icons…" autocomplete="off" spellcheck="false" aria-controls="grid">
+      <label for="sortOptions" class="sort-label">Sort by:</label>
+      <select id="sortOptions" aria-label="Sort icons">
+        <option value="alphabetical" selected>Alphabetical</option>
+        <option value="recent">Recently Added</option>
+      </select>
+      <label for="preview-color" class="visually-hidden">Icon preview background color</label>
+      <input id="preview-color" type="color" value="#e5e5e5" title="Icon preview background color" aria-label="Icon preview background color">
+    </div>
+    <div id="grid" class="icon-grid" aria-live="off"></div>
+    <p id="status" class="status" role="status">Loading icons…</p>
+  </main>
+
+  <dialog id="variants-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <header class="dialog-header">
+        <h1 id="dialog-title"></h1>
+        <div class="dialog-controls">
+          <label for="modal-preview-color" class="visually-hidden">Icon preview background color</label>
+          <input id="modal-preview-color" type="color" value="#e5e5e5" title="Icon preview background color" aria-label="Icon preview background color">
+          <button id="close-dialog" type="button" class="close-button" aria-label="Close icon variants">×</button>
+        </div>
+      </header>
+      <div id="variants-grid" class="variants-grid"></div>
+    </div>
+  </dialog>
+</body>
+</html>
